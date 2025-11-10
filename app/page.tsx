@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { ModeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
-	return <div>Hello world</div>;
+	return (
+		<div>
+			<h1>Hello world</h1>
+			<ModeToggle />
+		</div>
+	);
 }
