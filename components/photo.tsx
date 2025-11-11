@@ -1,20 +1,29 @@
 import Image from "next/image";
 
-const IMAGE_SIZE = 200;
+const IMAGE_OUTPUT_SIZE = 200;
+const ORIGINAL_IMAGE_WIDTH = 316;
+const ORIGINAL_IMAGE_HEIGHT = 305;
 
 export default function Photo() {
 	return (
 		<div
 			className="rounded-full bg-neutral-300"
-			style={{ width: `${IMAGE_SIZE}px`, height: `${IMAGE_SIZE}px` }}
+			style={{
+				width: `${IMAGE_OUTPUT_SIZE}px`,
+				height: `${IMAGE_OUTPUT_SIZE}px`,
+			}}
 		>
 			<Image
 				className="rounded-full"
-				style={{ width: `${IMAGE_SIZE}px`, height: `${IMAGE_SIZE}px` }}
+				style={{
+					width: `${IMAGE_OUTPUT_SIZE}px`,
+					height: `${IMAGE_OUTPUT_SIZE}px`,
+				}}
 				src="/vance-morrison.webp"
 				alt="Vance Morrison"
-				width={1265}
-				height={1219}
+				width={ORIGINAL_IMAGE_WIDTH}
+				height={ORIGINAL_IMAGE_HEIGHT}
+				preload={true}
 			/>
 		</div>
 	);
