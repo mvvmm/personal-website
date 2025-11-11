@@ -16,16 +16,45 @@ export default function Navbar() {
 		);
 
 	return (
-		<nav className="flex gap-4">
-			<Link href="/" className={linkClass("/")}>
-				Home
-			</Link>
-			<Link href="/about" className={linkClass("/about")}>
-				About
-			</Link>
-			<Link href="/experience" className={linkClass("/experience")}>
-				Experience
-			</Link>
+		<nav aria-label="Main navigation">
+			<ul className="flex gap-4 list-none">
+				<li>
+					<Link
+						href="/"
+						className={linkClass("/")}
+						aria-current={pathname === "/" && "page"}
+					>
+						Home
+					</Link>
+				</li>
+				<li>
+					<Link
+						href="/about"
+						className={linkClass("/about")}
+						aria-current={pathname === "/about" && "page"}
+					>
+						About
+					</Link>
+				</li>
+				<li>
+					<Link
+						href="/experience"
+						className={linkClass("/experience")}
+						aria-current={pathname === "/experience" && "page"}
+					>
+						Experience
+					</Link>
+				</li>
+				<li>
+					<Link
+						href="/contact"
+						className={linkClass("/contact")}
+						aria-current={pathname === "/contact" && "page"}
+					>
+						Contact
+					</Link>
+				</li>
+			</ul>
 		</nav>
 	);
 }
