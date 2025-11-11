@@ -1,6 +1,13 @@
 {
-  "biome.enabled": false,
-  "notebook.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+	"editor.linkedEditing": true,
+	"files.associations": {
+		"*.tsx": "typescriptreact",
+		"*.jsx": "javascriptreact"
+	},
+	"[typescriptreact]": {
+		"editor.linkedEditing": true
+	},
+	"[javascriptreact]": {
+		"editor.linkedEditing": true
+	}
 }
