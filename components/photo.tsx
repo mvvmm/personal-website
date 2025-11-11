@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 const IMAGE_OUTPUT_SIZE = 200;
-const ORIGINAL_IMAGE_WIDTH = 316;
-const ORIGINAL_IMAGE_HEIGHT = 305;
+const ORIGINAL_IMAGE_WIDTH = 633;
+const ORIGINAL_IMAGE_HEIGHT = 610;
 
 export default function Photo() {
 	return (
