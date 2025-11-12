@@ -1,15 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
-import { ImageResponse } from "@vercel/og";
-import type { NextRequest } from "next/server";
+import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 
 export const runtime = "nodejs";
+export const alt = "Vance Morrison - About";
+export const size = {
+	width: 1200,
+	height: 630,
+};
+export const contentType = "image/png";
 
-export async function GET(request: NextRequest) {
+export default async function Image() {
 	try {
-		const { searchParams } = new URL(request.url);
-		const pageName = searchParams.get("page") || "Home";
+		const pageName = "About";
 		const name = "Vance Morrison";
 
 		// Load only the Geist font weights we actually use (400 and 500)
@@ -168,3 +172,4 @@ export async function GET(request: NextRequest) {
 		});
 	}
 }
+

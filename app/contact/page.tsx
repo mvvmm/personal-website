@@ -9,9 +9,6 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
 	},
-	openGraph: {
-		images: [`${process.env.NEXT_PUBLIC_BASE_URL}/api/og?page=Contact`],
-	},
 };
 
 const contactItems = [

@@ -8,9 +8,6 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/experience`,
 	},
-	openGraph: {
-		images: [`${process.env.NEXT_PUBLIC_BASE_URL}/api/og?page=Experience`],
-	},
 };
 
 const experiences = [

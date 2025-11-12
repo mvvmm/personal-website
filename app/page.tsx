@@ -6,9 +6,6 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
 	},
-	openGraph: {
-		images: [`${process.env.NEXT_PUBLIC_BASE_URL}/api/og?page=Home`],
-	},
 };
 
 export default function Home() {
