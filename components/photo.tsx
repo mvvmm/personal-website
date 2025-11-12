@@ -9,14 +9,14 @@ const IMAGE_OUTPUT_SCALE = IMAGE_OUT_WIDTH / ORIGINAL_IMAGE_WIDTH;
 export default function Photo() {
 	return (
 		<div
-			className="rounded-full bg-slate-400 dark:bg-slate-600"
+			className="rounded-full bg-black dark:bg-white"
 			style={{
 				width: `${ORIGINAL_IMAGE_WIDTH * IMAGE_OUTPUT_SCALE}px`,
 				height: `${ORIGINAL_IMAGE_WIDTH * IMAGE_OUTPUT_SCALE}px`,
 			}}
 		>
 			<Image
-				className="rounded-full"
+				className="rounded-full grayscale contrast-125 !m-0"
 				style={{
 					width: `${ORIGINAL_IMAGE_WIDTH * IMAGE_OUTPUT_SCALE}px`,
 					height: `${ORIGINAL_IMAGE_WIDTH * IMAGE_OUTPUT_SCALE}px`,
