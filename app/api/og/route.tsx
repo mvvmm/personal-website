@@ -12,62 +12,50 @@ export async function GET(request: NextRequest) {
 		const pageName = searchParams.get("page") || "Home";
 		const name = "Vance Morrison";
 
-		// Load all Geist font weights from node_modules
-		const fontDir = join(
-			process.cwd(),
-			"node_modules",
-			"geist",
-			"dist",
-			"fonts",
-			"geist-sans",
-		);
+		// Load only the Geist font weights we actually use (400 and 500)
+		// with error handling for production environments
+		const geistFonts = [];
+		try {
+			const fontDir = join(
+				process.cwd(),
+				"node_modules",
+				"geist",
+				"dist",
+				"fonts",
+				"geist-sans",
+			);
 
-		const geistFonts = [
-			{
-				name: "Geist-UltraLight",
-				weight: 200 as const,
-				file: "Geist-UltraLight.ttf",
-			},
-			{ name: "Geist-Thin", weight: 100 as const, file: "Geist-Thin.ttf" },
-			{ name: "Geist-Light", weight: 300 as const, file: "Geist-Light.ttf" },
-			{
-				name: "Geist-Regular",
-				weight: 400 as const,
-				file: "Geist-Regular.ttf",
-			},
-			{ name: "Geist-Medium", weight: 500 as const, file: "Geist-Medium.ttf" },
-			{
-				name: "Geist-SemiBold",
-				weight: 600 as const,
-				file: "Geist-SemiBold.ttf",
-			},
-			{ name: "Geist-Bold", weight: 700 as const, file: "Geist-Bold.ttf" },
-			{ name: "Geist-Black", weight: 900 as const, file: "Geist-Black.ttf" },
-			{
-				name: "Geist-UltraBlack",
-				weight: 900 as const,
-				file: "Geist-UltraBlack.ttf",
-			},
-		].map((font) => ({
-			name: "Geist",
-			data: readFileSync(join(fontDir, font.file)),
-			style: "normal" as const,
-			weight: font.weight as
-				| 100
-				| 200
-				| 300
-				| 400
-				| 500
-				| 600
-				| 700
-				| 800
-				| 900,
-		}));
+			const fontsToLoad = [
+				{ weight: 400 as const, file: "Geist-Regular.ttf" },
+				{ weight: 500 as const, file: "Geist-Medium.ttf" },
+			];
 
-		// Load photo image
-		const photoPath = join(process.cwd(), "public", "vance-morrison.png");
-		const photoData = readFileSync(photoPath);
-		const photoBase64 = `data:image/png;base64,${photoData.toString("base64")}`;
+			for (const font of fontsToLoad) {
+				try {
+					const fontData = readFileSync(join(fontDir, font.file));
+					geistFonts.push({
+						name: "Geist",
+						data: fontData,
+						style: "normal" as const,
+						weight: font.weight,
+					});
+				} catch (fontError) {
+					console.warn(`Failed to load font ${font.file}:`, fontError);
+				}
+			}
+		} catch (fontDirError) {
+			console.warn("Font directory not found, using system fonts:", fontDirError);
+		}
+
+		// Load photo image with error handling
+		let photoBase64: string | undefined;
+		try {
+			const photoPath = join(process.cwd(), "public", "vance-morrison.png");
+			const photoData = readFileSync(photoPath);
+			photoBase64 = `data:image/png;base64,${photoData.toString("base64")}`;
+		} catch (photoError) {
+			console.warn("Failed to load photo, image will render without it:", photoError);
+		}
 
 		return new ImageResponse(
 			<div
@@ -81,7 +69,7 @@ export async function GET(request: NextRequest) {
 					backgroundColor: "#000000",
 					padding: "80px",
 					position: "relative",
-					fontFamily: "Geist",
+					fontFamily: geistFonts.length > 0 ? "Geist" : "system-ui, -apple-system, sans-serif",
 				}}
 			>
 				{/* Triangle icon in top-left */}
@@ -145,30 +133,32 @@ export async function GET(request: NextRequest) {
 				</div>
 
 				{/* Photo on the right */}
-				<div
-					style={{
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						alignSelf: "center",
-					}}
-				>
-					<img
-						src={photoBase64}
-						alt="Vance Morrison"
-						width={350}
-						height={350}
+				{photoBase64 && (
+					<div
 						style={{
-							borderRadius: "50%",
-							filter: "grayscale(100%) contrast(125%)",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							alignSelf: "center",
 						}}
-					/>
-				</div>
+					>
+						<img
+							src={photoBase64}
+							alt="Vance Morrison"
+							width={350}
+							height={350}
+							style={{
+								borderRadius: "50%",
+								filter: "grayscale(100%) contrast(125%)",
+							}}
+						/>
+					</div>
+				)}
 			</div>,
 			{
 				width: 1200,
 				height: 630,
-				fonts: geistFonts,
+				...(geistFonts.length > 0 && { fonts: geistFonts }),
 			},
 		);
 	} catch (e: unknown) {
