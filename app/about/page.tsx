@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
 	},
 	openGraph: {
-		images: ["/api/og?page=About"],
+		images: [`${process.env.NEXT_PUBLIC_BASE_URL}/api/og?page=About`],
 	},
 };
 
