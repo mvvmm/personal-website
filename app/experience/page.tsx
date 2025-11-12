@@ -1,4 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+	title: "Experience",
+	description:
+		"Professional experience including roles at ProService Hawaii, Cision, Statusphere, Mount Sinai, Lighting Research Center, and The Forge.",
+	alternates: {
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/experience`,
+	},
+	openGraph: {
+		images: ["/api/og?page=Experience"],
+	},
+};
 
 const experiences = [
 	{

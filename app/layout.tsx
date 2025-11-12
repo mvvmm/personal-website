@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Vance Morrison",
+	title: {
+		template: "%s | Vance Morrison",
+		default: "Vance Morrison",
+	},
 	description:
 		"Sr Staff Software Engineer | Next.js, React, TypeScript | UI/UX, Performance, Modern Web",
 };

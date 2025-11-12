@@ -90,7 +90,7 @@ export default function Love() {
 				ref={buttonRef}
 				onClick={handleLoveClick}
 				onKeyDown={handleKeyDown}
-				className="cursor-pointer transition-colors inline-block bg-transparent border-none p-0 font-inherit text-inherit"
+				className="cursor-pointer transition-colors inline-block bg-transparent border-none p-0 font-inherit text-inherit underline"
 				aria-label="Click to release hearts"
 			>
 				&lt;love&gt;

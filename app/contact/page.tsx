@@ -1,9 +1,18 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Copy as CopyIcon, Check as CheckIcon } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import CopyButton from "@/components/copy-button";
+
+export const metadata: Metadata = {
+	title: "Contact",
+	description:
+		"Get in touch with Vance Morrison. Contact via email, LinkedIn, or GitHub.",
+	alternates: {
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
+	},
+	openGraph: {
+		images: ["/api/og?page=Contact"],
+	},
+};
 
 const contactItems = [
 	{
@@ -42,12 +51,12 @@ export default function Page() {
 						<div className="flex items-center gap-2">
 							<Link
 								href={contactItem.url}
-								className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors duration-300"
+								className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors duration-300 underline"
 							>
 								{contactItem.display}
 							</Link>
 							{contactItem.copy && (
-								<Copy copyText={contactItem.copyText ?? ""} />
+								<CopyButton copyText={contactItem.copyText ?? ""} />
 							)}
 						</div>
 					</div>
@@ -56,33 +65,3 @@ export default function Page() {
 		</section>
 	);
 }
-
-const Copy = ({ copyText }: { copyText: string }) => {
-	const [copied, setCopied] = useState(false);
-
-	const handleCopy = async () => {
-		try {
-			await navigator.clipboard.writeText(copyText);
-			setCopied(true);
-			setTimeout(() => setCopied(false), 2000);
-		} catch (err) {
-			console.error("Failed to copy text:", err);
-		}
-	};
-
-	return (
-		<Button
-			type="button"
-			variant="ghost"
-			size="icon-sm"
-			onClick={handleCopy}
-			aria-label="Copy text"
-		>
-			{copied ? (
-				<CheckIcon className="text-green-600 dark:text-green-400" />
-			) : (
-				<CopyIcon />
-			)}
-		</Button>
-	);
-};

@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import Love from "@/components/love";
 import Photo from "@/components/photo";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+	title: "About",
+	description:
+		"Software engineer with a knack for the front-end, currently based in DFW, Texas. Former founding engineer and front-end lead at ProService Hawaii. Building things that feel good to use and stand the test of time.",
+	alternates: {
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
+	},
+	openGraph: {
+		images: ["/api/og?page=About"],
+	},
+};
 
 export default function Page() {
 	return (
@@ -13,7 +26,7 @@ export default function Page() {
 					<Photo />
 				</div>
 				<p>
-					Hi, I'm Vance — I <Love /> building software.
+					Hi, I&#39;m Vance — I <Love /> building software.
 				</p>
 				<p>
 					I'm a software engineer with a knack for the front-end, currently
@@ -129,10 +142,10 @@ export default function Page() {
 					make real impact.
 				</p>
 				<p>
-					I'm passionate about building user-centric, high-performance web
-					experiences through scalable architecture and proven technologies.
-					When I'm not coding, I'm usually thinking about code, or trying not to
-					think about code.
+					These days, I&#39;m focused on building things that feel good to use
+					and stand the test of time. I care about craft, clarity, and the small
+					details that make software feel effortless—grounded in how people
+					actually use and experience it.
 				</p>
 			</div>
 		</section>
