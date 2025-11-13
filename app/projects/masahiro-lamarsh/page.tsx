@@ -76,7 +76,6 @@ export default function Page() {
 
 					<p className="mb-4">One of the first projects we created was an archive of his pieces.</p>
 
-					{/* First image after second paragraph */}
 					<div className="my-12">
 						<Image
 							src="/projects/masa/archive.png"
@@ -85,7 +84,6 @@ export default function Page() {
 							height={1914}
 							className="w-full h-auto rounded-lg"
 							preload
-							priority
 						/>
 					</div>
 
@@ -99,7 +97,6 @@ export default function Page() {
 							height={1318}
 							className="w-full h-auto rounded-lg"
 							preload
-							priority
 						/>
 					</div>
 
@@ -111,7 +108,6 @@ export default function Page() {
 							height={1922}
 							className="w-full h-auto rounded-lg"
 							preload
-							priority
 						/>
 					</div>
 
