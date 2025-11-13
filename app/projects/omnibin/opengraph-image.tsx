@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { generateOpengraphImage } from "@/components/opengraph-image";
 
 export const runtime = "nodejs";
-export const alt = "Vance Morrison - Contact";
+export const alt = "Vance Morrison - omnib.in";
 export const size = {
 	width: 1200,
 	height: 630,
@@ -12,7 +12,7 @@ export const contentType = "image/png";
 export default async function Image() {
 	try {
 		const { element, options } = await generateOpengraphImage({
-			pageName: "Contact",
+			pageName: "omnib.in",
 			nameOnly: false,
 		});
 		return new ImageResponse(element, options);
