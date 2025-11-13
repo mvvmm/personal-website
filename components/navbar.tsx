@@ -4,56 +4,55 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
+const navItems = [
+	{
+		label: "Home",
+		href: "/",
+	},
+	{
+		label: "About",
+		href: "/about",
+	},
+	{
+		label: "Experience",
+		href: "/experience",
+	},
+	{
+		label: "Projects",
+		href: "/projects",
+	},
+	{
+		label: "Contact",
+		href: "/contact",
+	},
+];
+
 export default function Navbar() {
 	const pathname = usePathname();
+
+	const isActive = (path: string) =>
+		pathname === path || (path === "/projects" && pathname.startsWith("/projects"));
 
 	const linkClass = (path: string) =>
 		cn(
 			"font-bold transition-colors duration-300 text-sm",
-			pathname === path
-				? "text-foreground"
-				: "text-muted-foreground hover:text-foreground",
+			isActive(path) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
 		);
 
 	return (
 		<nav aria-label="Main navigation">
 			<ul className="flex gap-4 list-none">
-				<li>
-					<Link
-						href="/"
-						className={linkClass("/")}
-						aria-current={pathname === "/" && "page"}
-					>
-						Home
-					</Link>
-				</li>
-				<li>
-					<Link
-						href="/about"
-						className={linkClass("/about")}
-						aria-current={pathname === "/about" && "page"}
-					>
-						About
-					</Link>
-				</li>
-				<li>
-					<Link
-						href="/experience"
-						className={linkClass("/experience")}
-						aria-current={pathname === "/experience" && "page"}
-					>
-						Experience
-					</Link>
-				</li>
-				<li>
-					<Link
-						href="/contact"
-						className={linkClass("/contact")}
-						aria-current={pathname === "/contact" && "page"}
-					>
-						Contact
-					</Link>
-				</li>
+				{navItems.map((item) => (
+					<li key={item.href}>
+						<Link
+							href={item.href}
+							className={linkClass(item.href)}
+							aria-current={isActive(item.href) ? "page" : undefined}
+						>
+							{item.label}
+						</Link>
+					</li>
+				))}
 			</ul>
 		</nav>
 	);

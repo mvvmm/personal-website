@@ -31,16 +31,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<ThemeProvider attribute="class" disableTransitionOnChange>
-					<div className="min-h-screen px-6 py-24 sm:px-8 max-w-2xl mx-auto">
+					<div className="min-h-screen px-6 py-8 sm:py-12 md:py-24 sm:px-8 max-w-2xl mx-auto">
 						<header className="mb-16">
 							<div className="flex justify-between items-center mb-16">
-								<h1 className="text-5xl font-medium tracking-tight">
-									Vance Morrison
-								</h1>
+								<h1 className="text-5xl font-medium tracking-tight">Vance Morrison</h1>
 								<ThemeToggle />
 							</div>
 							<Navbar />
