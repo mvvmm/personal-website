@@ -7,8 +7,6 @@ import { GitHub } from "@/components/logos/github";
 const title = "Generative Art Playground";
 const slug = "generative-art-playground";
 const coverImage = "/projects/playground/cover.png";
-const otherImages = ["/projects/playground/edit.mp4", "/projects/playground/home.mp4"];
-
 const websiteUrl = "https://www.mvvmm.com";
 const githubUrl = "https://github.com/mvvmm/mvvmm.com";
 
@@ -68,16 +66,14 @@ export default function Page() {
 					</p>
 
 					<div className="my-12">
-						<video
-							src="/projects/playground/edit.mp4"
-							controls
+						<Image
+							src="/projects/playground/edit.png"
+							alt={title}
+							width={3172}
+							height={1998}
 							className="w-full h-auto rounded-lg"
-							playsInline
-							muted
-							loop
-						>
-							Your browser does not support the video tag.
-						</video>
+							preload
+						/>
 					</div>
 
 					<p className="mb-4">
@@ -112,16 +108,15 @@ export default function Page() {
 					</p>
 
 					<div className="my-12">
-						<video
-							src="/projects/playground/home.mp4"
-							controls
+						<Image
+							src="/projects/playground/home.png"
+							alt={title}
+							width={3150}
+							height={1924}
 							className="w-full h-auto rounded-lg"
-							playsInline
-							muted
-							loop
-						>
-							Your browser does not support the video tag.
-						</video>
+							preload
+							quality={50}
+						/>
 					</div>
 
 					<p className="mb-4">
