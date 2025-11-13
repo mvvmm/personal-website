@@ -56,7 +56,6 @@ export default function Page() {
 						width={1000}
 						height={600}
 						className="w-full h-auto rounded-lg"
-						priority
 						preload
 					/>
 				</div>

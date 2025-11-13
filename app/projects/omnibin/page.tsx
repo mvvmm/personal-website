@@ -64,7 +64,7 @@ export default function ProjectPage() {
 						width={1000}
 						height={600}
 						className="w-full h-auto rounded-lg"
-						priority
+						preload
 					/>
 				</div>
 
@@ -92,7 +92,6 @@ export default function ProjectPage() {
 							height={630}
 							className="w-full h-auto rounded-lg"
 							preload
-							priority
 						/>
 					</div>
 
@@ -109,7 +108,6 @@ export default function ProjectPage() {
 							height={1938}
 							className="w-full h-auto rounded-lg"
 							preload
-							priority
 						/>
 					</div>
 
