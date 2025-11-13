@@ -70,9 +70,7 @@ const experiences = [
 export default function Page() {
 	return (
 		<section>
-			<div className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-6">
-				Experience
-			</div>
+			<div className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-6">Experience</div>
 			<div className="flex flex-col gap-8">
 				{experiences.map((experience) => (
 					<div key={experience.company} className="flex gap-4 items-start">
@@ -82,19 +80,16 @@ export default function Page() {
 							alt={experience.logoAlt}
 							width={500}
 							height={500}
+							preload
 						/>
 						<div className="w-full">
 							<div className="flex justify-between">
 								<h3 className="font-medium text-gray-900 dark:text-gray-100">
 									{experience.company}
 								</h3>
-								<p className="text-sm text-gray-500 dark:text-gray-500">
-									{experience.dateRange}
-								</p>
+								<p className="text-sm text-gray-500 dark:text-gray-500">{experience.dateRange}</p>
 							</div>
-							<p className="text-sm text-gray-600 dark:text-gray-400">
-								{experience.position}
-							</p>
+							<p className="text-sm text-gray-600 dark:text-gray-400">{experience.position}</p>
 						</div>
 					</div>
 				))}
