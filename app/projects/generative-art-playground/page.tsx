@@ -53,10 +53,11 @@ export default function Page() {
 					<Image
 						src={coverImage}
 						alt={title}
-						width={1200}
-						height={630}
+						width={1000}
+						height={600}
 						className="w-full h-auto rounded-lg"
 						priority
+						preload
 					/>
 				</div>
 

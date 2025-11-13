@@ -32,8 +32,8 @@ export default function Page() {
 								<Image
 									src={project.coverImage}
 									alt={project.title}
-									width={1200}
-									height={630}
+									width={1000}
+									height={600}
 									className="w-full h-auto rounded-lg transition-opacity group-hover:opacity-80"
 								/>
 							</div>

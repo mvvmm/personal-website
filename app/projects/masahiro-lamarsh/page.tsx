@@ -54,6 +54,7 @@ export default function Page() {
 						height={600}
 						className="w-full h-auto rounded-lg"
 						priority
+						preload
 					/>
 				</div>
 
@@ -80,9 +81,11 @@ export default function Page() {
 						<Image
 							src="/projects/masa/archive.png"
 							alt="Masahiro Lamarsh - Archive"
-							width={1200}
-							height={800}
+							width={3434}
+							height={1914}
 							className="w-full h-auto rounded-lg"
+							preload
+							priority
 						/>
 					</div>
 
@@ -92,9 +95,11 @@ export default function Page() {
 						<Image
 							src="/projects/masa/bid-1.png"
 							alt="Masahiro Lamarsh - bid interface"
-							width={1200}
-							height={800}
+							width={2676}
+							height={1318}
 							className="w-full h-auto rounded-lg"
+							preload
+							priority
 						/>
 					</div>
 
@@ -102,9 +107,11 @@ export default function Page() {
 						<Image
 							src="/projects/masa/bid-2.png"
 							alt="Masahiro Lamarsh - bid interface piece closeup"
-							width={1200}
-							height={800}
+							width={2676}
+							height={1922}
 							className="w-full h-auto rounded-lg"
+							preload
+							priority
 						/>
 					</div>
 

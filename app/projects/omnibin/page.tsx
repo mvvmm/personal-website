@@ -89,8 +89,10 @@ export default function ProjectPage() {
 							src="/projects/omnibin/og.png"
 							alt="omnibin - promo image"
 							width={1200}
-							height={800}
+							height={630}
 							className="w-full h-auto rounded-lg"
+							preload
+							priority
 						/>
 					</div>
 
@@ -103,9 +105,11 @@ export default function ProjectPage() {
 						<Image
 							src="/projects/omnibin/bin.png"
 							alt="omnibin - bin view"
-							width={1200}
-							height={800}
+							width={1692}
+							height={1938}
 							className="w-full h-auto rounded-lg"
+							preload
+							priority
 						/>
 					</div>
 
