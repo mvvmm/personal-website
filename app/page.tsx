@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	description:
-		"Software engineer with a knack for the front-end, currently based in DFW, Texas. Building things that feel good to use and stand the test of time.",
+	description: "Vance Morrison's personal website",
 	alternates: {
 		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
 	},
 };
 
 export default function Home() {
-	return <>Home</>;
+	return (
+		<>
+			<section>
+				<div className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-6">Home</div>
+			</section>
+		</>
+	);
 }
