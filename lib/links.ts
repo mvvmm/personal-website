@@ -5,7 +5,7 @@
 // Personal & Social Links
 export const personalLinks = {
 	github: "https://github.com/mvvmm",
-	githubSource: "https://github.com/mvvmm/personal-website",
+	githubSource: "https://github.com/mvvmm/vance.page",
 	linkedin: "https://www.linkedin.com/in/vancemorrison/",
 	email: "root.mvm@gmail.com",
 	emailUrl: "mailto:root.mvm@gmail.com",
