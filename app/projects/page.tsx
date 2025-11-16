@@ -50,7 +50,7 @@ export default function Page() {
 					experience
 				</Link>{" "}
 				and{" "}
-				<Link href="/about" className="text-foreground underline hover:no-underline">
+				<Link href="/" className="text-foreground underline hover:no-underline">
 					about
 				</Link>{" "}
 				pages.
