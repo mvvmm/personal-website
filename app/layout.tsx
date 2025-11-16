@@ -5,6 +5,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { AsciiArt } from "@/components/ascii-art";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+				<AsciiArt />
 				<ThemeProvider attribute="class" disableTransitionOnChange>
 					<div className="flex flex-col min-h-screen px-6 sm:px-8 py-8 sm:pt-12 md:pt-24  max-w-2xl mx-auto">
 						<header className="mb-16">
