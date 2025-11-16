@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -33,7 +34,7 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<ThemeProvider attribute="class" disableTransitionOnChange>
-					<div className="min-h-screen px-6 py-8 sm:py-12 md:py-24 sm:px-8 max-w-2xl mx-auto">
+					<div className="flex flex-col min-h-screen px-6 sm:px-8 py-8 sm:pt-12 md:pt-24  max-w-2xl mx-auto">
 						<header className="mb-16">
 							<div className="flex justify-between items-center mb-16">
 								<h1 className="text-5xl font-medium tracking-tight">Vance Morrison</h1>
@@ -42,7 +43,9 @@ export default function RootLayout({
 							<Navbar />
 						</header>
 
-						{children}
+						<div className="flex-1">{children}</div>
+
+						<Footer />
 					</div>
 				</ThemeProvider>
 			</body>
