@@ -4,18 +4,20 @@ import Link from "next/link";
 import { Globe } from "lucide-react";
 import { Apple } from "@/components/logos/apple";
 import { GitHub } from "@/components/logos/github";
+import { projectLinks } from "@/lib/links";
+import { projectSlugs, getProjectRoute } from "@/lib/routes";
 
 const title = "omnib.in";
-const slug = "omnibin";
-const githubUrl = "https://github.com/mvvmm/omnibin";
-const appleUrl = "https://apps.apple.com/us/app/omnibin/id6752793228";
-const webUrl = "https://omnib.in";
+const slug = projectSlugs.omnibin;
+const githubUrl = projectLinks.omnibin.github;
+const appleUrl = projectLinks.omnibin.appStore;
+const webUrl = projectLinks.omnibin.web;
 
 export const metadata: Metadata = {
 	title,
 	description: `${title}`,
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${getProjectRoute(slug)}`,
 	},
 };
 
@@ -114,7 +116,7 @@ export default function ProjectPage() {
 					<p className="mb-4">
 						You can access it through the web at{" "}
 						<Link
-							href={webUrl}
+							href={projectLinks.omnibin.web}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"
@@ -123,7 +125,7 @@ export default function ProjectPage() {
 						</Link>
 						, download the iOS app from the{" "}
 						<Link
-							href={appleUrl}
+							href={projectLinks.omnibin.appStore}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"
@@ -132,7 +134,7 @@ export default function ProjectPage() {
 						</Link>
 						, or check out the code on{" "}
 						<Link
-							href={githubUrl}
+							href={projectLinks.omnibin.github}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"

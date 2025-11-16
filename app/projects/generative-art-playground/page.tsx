@@ -3,18 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { Globe } from "lucide-react";
 import { GitHub } from "@/components/logos/github";
+import { projectLinks, externalLinks } from "@/lib/links";
+import { projectSlugs, getProjectRoute } from "@/lib/routes";
 
 const title = "Generative Art Playground";
-const slug = "generative-art-playground";
+const slug = projectSlugs.generativeArtPlayground;
 const coverImage = "/projects/playground/cover.png";
-const websiteUrl = "https://www.mvvmm.com";
-const githubUrl = "https://github.com/mvvmm/mvvmm.com";
+const websiteUrl = projectLinks.generativeArtPlayground.website;
+const githubUrl = projectLinks.generativeArtPlayground.github;
 
 export const metadata: Metadata = {
 	title,
 	description: `${title}`,
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${getProjectRoute(slug)}`,
 	},
 };
 
@@ -79,7 +81,7 @@ export default function Page() {
 					<p className="mb-4">
 						I've always been inspired by software like{" "}
 						<Link
-							href="https://p5js.org/"
+							href={externalLinks.p5js}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"
@@ -88,7 +90,7 @@ export default function Page() {
 						</Link>{" "}
 						and{" "}
 						<Link
-							href="https://ojack.xyz"
+							href={externalLinks.ojack}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"
@@ -96,7 +98,7 @@ export default function Page() {
 							ojack's
 						</Link>{" "}
 						<Link
-							href="https://hydra.ojack.xyz"
+							href={externalLinks.hydra}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"
@@ -122,7 +124,7 @@ export default function Page() {
 					<p className="mb-4">
 						You can try it out at{" "}
 						<Link
-							href="https://www.mvvmm.com"
+							href={projectLinks.generativeArtPlayground.website}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"
@@ -131,7 +133,7 @@ export default function Page() {
 						</Link>{" "}
 						and explore the code on{" "}
 						<Link
-							href="https://github.com/mvvmm/mvvmm.com"
+							href={projectLinks.generativeArtPlayground.github}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-foreground underline hover:no-underline"

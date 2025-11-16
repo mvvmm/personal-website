@@ -1,7 +1,5 @@
 import Link from "next/link";
-
-const PERSONAL_GITHUB_URL = "https://github.com/mvvmm";
-const SOURCE_GITHUB_URL = "https://github.com/mvvmm/personal-website";
+import { personalLinks } from "@/lib/links";
 
 export default function Footer() {
 	return (
@@ -10,7 +8,7 @@ export default function Footer() {
 				Vance Morrison (
 				<Link
 					className="text-foreground underline hover:no-underline"
-					href={PERSONAL_GITHUB_URL}
+					href={personalLinks.github}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -21,7 +19,7 @@ export default function Footer() {
 			<div>
 				<Link
 					className="text-foreground underline hover:no-underline"
-					href={SOURCE_GITHUB_URL}
+					href={personalLinks.githubSource}
 					target="_blank"
 					rel="noopener noreferrer"
 				>

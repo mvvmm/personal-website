@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Love from "@/components/love";
 import Photo from "@/components/photo";
 import Link from "next/link";
+import { companyLinks } from "@/lib/links";
+import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
 	title: "Vance Morrison",
 	description:
 		"Vance Morrison is a software engineer with a knack for the front-end, currently based in DFW, Texas.",
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${routes.home}`,
 	},
 };
 
@@ -27,7 +29,7 @@ export default function Home() {
 					I'm a software engineer with a knack for the front-end, currently based in DFW, Texas.
 					Most recently, I was a founding engineer and front-end lead at{" "}
 					<Link
-						href="https://www.proservice.com/"
+						href={companyLinks.proservice}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -42,7 +44,7 @@ export default function Home() {
 				<p>
 					I got my start building software at{" "}
 					<Link
-						href="https://www.rpiforge.dev/"
+						href={companyLinks.forge}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -51,7 +53,7 @@ export default function Home() {
 					</Link>
 					, the maker space on campus at{" "}
 					<Link
-						href="https://www.rpi.edu/"
+						href={companyLinks.rpi}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -60,7 +62,7 @@ export default function Home() {
 					</Link>
 					, where I built a{" "}
 					<Link
-						href="https://www.rpiforge.dev/status"
+						href={companyLinks.forgeStatus}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -75,7 +77,7 @@ export default function Home() {
 					bought out by Mount Sinai, and I continued building software that helped some of the
 					largest lighting companies in the world better produce healthy lighting. I built the{" "}
 					<Link
-						href="https://cscalc.light-health.org/"
+						href={companyLinks.csCalculator}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -84,7 +86,7 @@ export default function Home() {
 					</Link>
 					, an online lighting calculator, along with its{" "}
 					<Link
-						href="https://docs.light-health.org/cscalc"
+						href={companyLinks.csCalculatorDocs}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -97,7 +99,7 @@ export default function Home() {
 				<p>
 					From there, I moved to{" "}
 					<Link
-						href="https://www.joinstatus.com/"
+						href={companyLinks.statusphere}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -112,7 +114,7 @@ export default function Home() {
 				<p>
 					At{" "}
 					<Link
-						href="https://www.cision.com/"
+						href={companyLinks.cision}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"
@@ -123,7 +125,7 @@ export default function Home() {
 					with subject matter experts. We built it from the ground up in one quarter, and it quickly
 					gained 25,000+ users in the following months. The product was later acquired by{" "}
 					<Link
-						href="https://www.featured.com/"
+						href={companyLinks.featured}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-foreground underline hover:no-underline"

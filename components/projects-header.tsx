@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { routes } from "@/lib/routes";
 
 export function ProjectsHeader() {
 	const pathname = usePathname();
-	const isRootPage = pathname === "/projects";
+	const isRootPage = pathname === routes.projects;
 
 	const content = (
 		<div className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-6 flex items-center gap-2">
@@ -20,7 +21,7 @@ export function ProjectsHeader() {
 	}
 
 	return (
-		<Link href="/projects" className="hover:opacity-80 transition-opacity">
+		<Link href={routes.projects} className="hover:opacity-80 transition-opacity">
 			{content}
 		</Link>
 	);

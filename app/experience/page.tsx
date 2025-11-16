@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
 	title: "Experience",
 	description:
 		"Vance Morrison's professional experience including roles at ProService Hawaii, Cision, Statusphere, Mount Sinai, Lighting Research Center, and The Forge.",
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/experience`,
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${routes.experience}`,
 	},
 };
 

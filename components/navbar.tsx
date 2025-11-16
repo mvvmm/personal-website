@@ -3,31 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-	{
-		label: "About",
-		href: "/",
-	},
-	{
-		label: "Experience",
-		href: "/experience",
-	},
-	{
-		label: "Projects",
-		href: "/projects",
-	},
-	{
-		label: "Contact",
-		href: "/contact",
-	},
-];
+import { navItems, routes } from "@/lib/routes";
 
 export default function Navbar() {
 	const pathname = usePathname();
 
 	const isActive = (path: string) =>
-		pathname === path || (path === "/projects" && pathname.startsWith("/projects"));
+		pathname === path || (path === routes.projects && pathname.startsWith(routes.projects));
 
 	const linkClass = (path: string) =>
 		cn(

@@ -3,17 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { Globe } from "lucide-react";
 import { Instagram } from "@/components/logos/instagram";
+import { projectLinks } from "@/lib/links";
+import { projectSlugs, getProjectRoute } from "@/lib/routes";
 
 const title = "Masahiro Lamarsh";
-const slug = "masahiro-lamarsh";
-const websiteUrl = "https://www.masahirolamarsh.com/";
-const instagramUrl = "https://www.instagram.com/hirolamarsh/";
+const slug = projectSlugs.masahiroLamarsh;
+const websiteUrl = projectLinks.masahiroLamarsh.website;
+const instagramUrl = projectLinks.masahiroLamarsh.instagram;
 
 export const metadata: Metadata = {
 	title,
 	description: `${title}`,
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${slug}`,
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${getProjectRoute(slug)}`,
 	},
 };
 

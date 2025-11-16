@@ -1,34 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CopyButton from "@/components/copy-button";
+import { personalLinks } from "@/lib/links";
+import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
 	title: "Contact",
 	description:
 		"Get in touch with Vance Morrison. Contact via email, LinkedIn, or GitHub.",
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
+		canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${routes.contact}`,
 	},
 };
 
 const contactItems = [
 	{
 		label: "Email",
-		display: "root.mvm@gmail.com",
-		url: "mailto:root.mvm@gmail.com",
+		display: personalLinks.email,
+		url: personalLinks.emailUrl,
 		copy: true,
-		copyText: "root.mvm@gmail.com",
+		copyText: personalLinks.email,
 	},
 	{
 		label: "LinkedIn",
 		display: "vancemorrison",
-		url: "https://www.linkedin.com/in/vancemorrison/",
+		url: personalLinks.linkedin,
 		copy: false,
 	},
 	{
 		label: "GitHub",
 		display: "mvvmm",
-		url: "https://github.com/mvvmm",
+		url: personalLinks.github,
 		copy: false,
 	},
 ];
